@@ -12,6 +12,8 @@ LINE = 'The meeting could have been an email. The email could have been a senten
 
 
 def main() -> None:
+    if not 1 <= len(LINE) <= 400:
+        raise ValueError(f"entry must be 1-400 characters, got {len(LINE)}")
     target = os.environ.get("ENTRY_OUTPUT_PATH", "/output/entry.txt")
     path = Path(target)
     try:
